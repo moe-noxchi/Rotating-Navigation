@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+    box-sizing: border-box;
+    /* it orginzise the margin and padding */
+}
+
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #333;
+    color: #222;
+    overflow-x: hidden;
+    /* allows u to hide the width of the content for the img box */
+    margin: 0;
+}
+
+.container {
+    background-color: #fafafa;
+    transform-origin: top left;
+    /* this moved the img to top & left */
+    transition: 0.5s linear;
+    /* it transforms and lets the page rotate*/
+    width: 100vw; 
+    /* it centers the with of the page with 100vw width in the pagg so the text can look better and filled */
+    min-height: 100vh;
+    /* heaight of page */
+    padding: 50px;
+    /* so the page can be ajusted 50px from all sides so it can be in the middle */
+}
+
+.container.show-nav {
+    transform: rotate(-20deg);
+    /* this rotated the img -20deg */
+}
+
+.circle-container {
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    /* these two makes the circle disapppear from the page */
+}
+
+.circle {
+    background-color: #ff7979;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    /* we make the circle show up the half of it in the page */
+    position: relative;
+    transition: 0.5s linear;
+    /* gives the circle an animation */
+}
+
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+    /* we make the circle rotate */
+}
+
+.circle button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* it adjusts the button on the top left corner */
+    height: 100px;
+    /* we make the button heigher */
+    background: transparent;
+    /* make it colorless */
+    border: 0;
+    font-size: 26px;
+    color: #fff;
+}
+
+.circle button:focus {
+    outline: none;
+    /* makes the line disappear */
+}
+
+.circle button#open {
+    left: 60%;
+}
+
+.circle button#close {
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+    /* The transform-origin property allows you to change the position of transformed elements. */
+    
+}
+
+.container.show-nav + nav li {
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 100;
+    /* we make the nav bar move to the left in the animation */
+}
+
+nav ul {
+    list-style-type: none;
+    /* removes the bullet points */
+    padding-left: 30px;
+}
+
+nav ul li {
+    text-transform: uppercase;
+    color: #fff;
+    margin: 40px 0;
+    /* so we gave the nav bar a personality by making the text bigger and giving it a color of white then using up and down margin */
+    transform: translateX(-100%);
+    transition: 0.4s ease-in;
+    cursor: pointer;
+}
+
+nav ul li i {
+    font-size: 20px;
+    margin-right: 10px;
+    /* makes the icon bigger and makes some space between them */
+}
+
+nav ul li + li {
+    margin-left: 15px;
+    /* takes out the li to make it like stairs */
+    transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+
+.content img {
+    max-width: 100%;
+}
+
+.content {
+    max-width: 1000px;
+    margin: 50px auto;
+    /* adjusts the content in the middle of the page */
+}
+
+.content h1 {
+    margin: 0;
+}
+
+.content small {
+    color: #555;
+    font-style: italic;
+}
+
+.content p {
+    color: #333;
+    line-height: 1.5;
+}
